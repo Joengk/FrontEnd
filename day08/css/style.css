@@ -1,0 +1,58 @@
+<
+style >
+    /*
+    1. 诗放在div的层中id=content，宽400px，全文字体大小14px;
+    2. 标题放在h1中。每段文字放在p中
+    3. 标题文字大小18px，颜色#06F，居中对齐
+    4. 每段文字缩进2em
+    5. 段中的行高是22px
+    6. "胸怀中满溢着幸福，只因你就在我眼前",加粗，倾斜，蓝色
+    7. 最后一段，颜色#390; 下划线
+    8. 美字加粗，颜色color:#F36，大小18px;
+    9. 文席慕容，三个字，12px，颜色#999，不加粗
+    */
+#content {
+    font-weight: 400;
+    font-size: 14px;
+
+}
+
+h1 {
+    font-size: 18px;
+    color: #06F;
+    text-align: center;
+}
+
+p {
+    text-indent: 2em;
+    line-height: 22px;
+}
+
+#punchLine {
+    font-weight: bold;
+    font-style: italic;
+    color: blue;
+
+}
+
+#end {
+    color: #390;
+    text-decoration: underline;
+
+}
+
+#mei {
+    font-weight: bold;
+    color: #f36;
+    font-size: 18px;
+}
+
+#author {
+    font-size: 12px;
+    color: #999;
+    font-weight: normal;
+}
+
+<
+/
+style >

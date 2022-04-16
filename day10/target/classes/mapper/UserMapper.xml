@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bit.clots.ywk.mapper.UserMapper">
+    <sql id="userPojo">
+        id,
+        username,
+        password
+    </sql>
+
+    <sql id="brandPojo">
+        id,
+        brand_name,
+        company_name,
+        ordered,
+        description,
+        STATUS
+    </sql>
+
+    <select id="findByUsernameAndPassword" resultType="bit.clots.ywk.pojo.User">
+        select   <include refid="userPojo"/>
+        from tb_user
+        where username = #{username} and password = #{password}
+
+    </select>
+
+    <select id="findUserByName" resultType="bit.clots.ywk.pojo.User">
+        select        <include refid="userPojo"/>
+        from tb_user
+        where username = #{name}
+    </select>
+
+    <insert id="addUser">
+        insert into tb_user values (null, #{name}, #{password})
+    </insert>
+
+
+    <resultMap id="brandList" type="Brand" autoMapping="true">
+
+    </resultMap>
+    <select id="selectAllBrand" resultMap="brandList">
+        select <include refid="brandPojo"/>
+        from tb_brand
+    </select>
+</mapper>
+
+

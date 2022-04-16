@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if判断语句</title>
+</head>
+<body>
+
+<script>
+    // 定义年龄变量,判断是否是未成年人
+    let age = 8;
+    if (age < 18) {
+        document.write("未成年" + "<br/>");
+    } else {
+        document.write("成年人" + "<br/>");
+    }
+    //运行结果：
+
+    // JS非boolean作为if的条件
+    // number: 非0为true, 0为false
+    let a = 0;
+    if (a) {
+        document.write("true" + "<br/>");
+    } else {
+        document.write("false" + "<br/>");
+    }
+    //运行结果：
+
+    // string: 字符串有内容为true, 字符串没有内容("")为false
+    let str = "";
+    if (str) {
+        document.write("true" + "<br/>");
+    } else {
+        document.write("false" + "<br/>");
+    }
+    //运行结果：
+
+    // undefined: 为false
+    let x;
+    if (x) {
+        document.write("true" + "<br/>");
+    } else {
+        document.write("false" + "<br/>");
+    }
+    //运行结果：
+
+    // object: 对象不为null是true, 对象为null是false
+    let obj = {name: "李四"};
+    obj = null;
+    if (obj) {
+        document.write("true" + "<br/>");
+    } else {
+        document.write("false" + "<br/>");
+    }
+    //运行结果：
+</script>
+
+</body>
+</html>

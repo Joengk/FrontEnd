@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>匿名函数</title>
+</head>
+<body>
+
+<script>
+    'use strict';
+    /* 匿名函数格式如下:
+        function (参数列表) {
+            代码块;
+            return 返回值;
+        }
+     */
+
+    // 定义一个匿名函数实现加法功能
+    let add = function (a, b) {
+        return a + b;
+    }
+
+
+    function inner() {
+        for (let len of arguments) {
+            console.log(len);
+        }
+    }
+
+
+    // 调用函数
+    let c = add(1, 2);
+    console.log(c);
+    // document.write(c)
+
+</script>
+
+</body>
+</html>

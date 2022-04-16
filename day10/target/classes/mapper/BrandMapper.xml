@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bit.clots.ywk.mapper.BrandMapper">
+    <sql id="brandPojo">
+        id,
+        brand_name,
+        company_name,
+        ordered,
+        description,
+        STATUS
+    </sql>
+
+
+    <resultMap id="brandList" type="Brand" autoMapping="true">
+    </resultMap>
+    <select id="selectAllBrand" resultMap="brandList">
+        select
+        <include refid="brandPojo"/>
+        from request_test.tb_brand
+    </select>
+
+    <insert id="addBrand">
+        insert into request_test.tb_brand
+        values (null, #{brand.brandName}, #{brand.companyName}, #{brand.ordered}, #{brand.description}, #{brand.status})
+    </insert>
+
+    <select id="selectById" resultType="bit.clots.ywk.pojo.Brand">
+        select
+        <include refid="brandPojo"/>
+        from request_test.tb_brand
+        where id = #{id}
+    </select>
+
+    <update id="updateBrand">
+        update request_test.tb_brand
+        set brand_name   = #{brand.brandName},
+            company_name = #{brand.companyName},
+            ordered      = #{brand.ordered},
+            description  = #{brand.description},
+            `status`     = #{brand.status}
+        where id = #{brand.id}
+    </update>
+
+    <delete id="deletedBrand">
+        delete from request_test.tb_brand
+        where id = #{id}
+
+    </delete>
+</mapper>
+
+

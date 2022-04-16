@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入框获得焦点和失去焦点的事件</title>
+    <style>
+        #sp1 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!--onfocus: 输入框获得焦点时执行-->
+用户名: <input id="in1" name="user" onfocus="inputFocus()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="sp1">请输入</span>
+
+<script>
+    // 命名函数设置事件: 给id="in1"设置获取焦点事件onfocus, 在事件里面设置id="sp1"标签体内容"正在输入"
+    function inputFocus() {
+        document.getElementById("sp1").innerText = "正在输入"
+    }
+
+    // 匿名函数设置失去焦点的事件：给id="in1"设置失去焦点事件onfblur, 在事件里面设置id="sp1"标签体内容"请输入"
+    document.getElementById("in1").onblur = function () {
+        document.getElementById("sp1").innerText = "请输入"
+    }
+
+</script>
+
+</body>
+</html>

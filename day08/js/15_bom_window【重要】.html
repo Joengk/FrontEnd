@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window对象</title>
+</head>
+<body>
+<img id="myImage" border="0" src="img/off.gif"/>
+
+
+<script>
+    // alert提示警告框  (只有确定按钮)
+
+    // 输入框  (可以输入数据,有确定和取消按钮), 点击确定得到输入的内容, 点击取消得到null
+
+    // 确认框  (只有有确定和取消按钮), 点击确定得到true, 点击取消得到false
+
+    // window.可以省略
+
+    // 定时器
+    let num = 0;
+
+    function changeImg() {
+        if (num === 0) {
+            document.getElementById("myImage").src = "../img/off.gif"
+            num = 1;
+        } else {
+            document.getElementById("myImage").src = "../img/on.gif"
+            num = 0;
+        }
+    }
+
+    // setInterval(changeImg,200);
+
+    // setTimeout(函数名, 间隔毫秒数) 过指定时间后执行一次函数
+    // setTimeout(show, 1000);
+</script>
+</body>
+</html>

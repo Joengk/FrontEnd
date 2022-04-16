@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS中运算符</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    /*除法*/
+    let number = 5 / 2;
+    document.write("结果：" + number + "<br/>");  //结果为？ 答：
+
+
+    /*js中比较运算符==和===区别
+    *    == ： 比较的是内容值，不比数据类型
+    *    ===： 即比较内容值，也比较数据类型
+    * */
+    let n1 = 5;
+    let n2 = "5";
+    document.write("n1==n2:" + (n1 == n2) + "<br/>");  //结果为？ 答：
+    document.write("n1===n2:" + (n1 === n2) + "<br/>");//结果为？ 答：
+
+
+    /*
+    * 字符串与数字比较原理
+    *   会将字符串转换为数字之后再与数字比较，如果转换不了比较的结果为false
+    * */
+    let n3 = 5;
+    let n4 = "4";
+    document.write("n3 > n4:" + (n3 > n4) + "<br/>");  //结果为？ 答：
+
+    let n5 = 5;
+    let n6 = "4abc";
+    document.write("n5 > n6:" + (n5 > n6) + "<br/>");  //结果为？ 答：
+
+
+    /*
+     * 字符串之间比较大小原理
+     * 1. 按字符串的ASCII码值比较大小
+     * 2. 第1个字母相同，比较第2个，如果第1个能比较出大小，后面不再继续比较
+     * 3. 数字小于大写字母，大写字母小于小写字母
+     *    数字，0~9  ASCII 48~57
+     *    大写，A~Z  ASCII 65~90
+     *    小写，a~z  ASCII 97~122
+     */
+    let n7 = "5";
+    let n8 = "A";
+    document.write("n7 > n8:" + (n7 > n8) + "<br/>");  //结果为？ 答：
+
+
+</script>
+</body>
+</html>

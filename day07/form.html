@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+
+    <div>
+        <h1> 用户注册</h1>
+        <hr>
+    </div>
+    <div>
+
+        <form action="http://localhost:8080/demo2_war_exploded/" method="post">
+            <table>
+                <tr>
+                    <td>用户名:</td>
+                    <td>
+                        <input type="text" name="userName" placeholder="请输入用户名">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>密码:</td>
+                    <td>
+                        <input type="password" name="passWord" placeholder="请输入用户名">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>邮箱:</td>
+                    <td>
+                        <input type="email" name="email" placeholder="请输入邮箱">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>手机:</td>
+                    <td>
+                        <input type="tel" name="tel" placeholder="请输入手机号">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>性别:</td>
+                    <td>
+                        <!-- 前提要 name 值一样 -->
+                        <input type="radio" name="gender" value="1">男
+                        <input type="radio" name="gender" value="0">女
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>爱好:</td>
+                    <td>
+                        <input type="checkbox" name="hobby" value="swim">游泳
+                        <input type="checkbox" name="hobby" value="net">上网
+                        <input type="checkbox" name="hobby" value="movie">电影
+                        <input type="checkbox" name="hobby" value="read">看书
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>学历:</td>
+                    <td>
+                        <select name="study" id="study">
+                            <option value="0">硕士或以上</option>
+                            <option value="1" selected="selected">本科</option>
+                            <option value="2">大专</option>
+                            <option value="3">高中或以下</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>所在城市:</td>
+                    <td>
+                        <select name="city" id="city">
+                            <optgroup label="广东">
+                                <option value="0">广州</option>
+                                <option value="1">深圳</option>
+                            </optgroup>
+                            <optgroup label="上海">
+                                <option value="2">黄浦</option>
+                                <option value="3">陆家嘴</option>
+                            </optgroup>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>出生:</td>
+                    <td>
+                        <input type="date" name="birthday">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>照片:</td>
+                    <td>
+                        <input type="file"
+                               name="选择文件"
+                               accept="image/png, image/jpeg">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>个人简介:</td>
+                    <td>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="注册">
+                        <input type="reset" name="重置">
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</head>
+<body>
+
+</body>
+</html>

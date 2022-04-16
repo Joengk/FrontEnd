@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom操作</title>
+</head>
+<body>
+
+<img id="light" src="img/off.gif"> <br>
+
+<div class="cls">传智教育</div>
+<br>
+<div class="cls">黑马程序员</div>
+<br>
+
+<input type="checkbox" name="hobby"> 电影
+<input type="checkbox" name="hobby"> 旅游
+<input type="checkbox" name="hobby"> 游戏
+<br>
+
+
+<script type="text/javascript">
+    //在es6 规范中 扩充了选择器的操作
+    document.querySelector("选择器");
+    document.querySelectorAll("选择器");
+</script>
+
+
+<script>
+    // 1.getElementById：根据id属性值获取，返回一个Element对象
+    document.getElementById("light").src = "../img/on.gif"
+
+    // 2.getElementsByTagName：根据标签名称获取，返回Element对象数组
+    document.getElementsByTagName("ch")
+
+    // 3.getElementsByName：根据name属性值获取，返回Element对象数组
+    let checkboxlist = document.getElementsByName("hobby")
+    for (let e of checkboxlist) {
+        e.checked = true;
+    }
+
+    // 4.getElementsByClassName：根据class属性值获取，返回Element对象数组
+    // innerHTML修改标签的主体内容
+
+    let divlists = document.getElementsByClassName("cls");
+    for (let e of divlists) {
+        let cont = e.innerText
+        //替换为 html 元素
+        e.innerHTML = `<h1>${cont}</h1>`
+    }
+
+
+    //对同一组元素进行操作, 后面的会覆盖前面的
+    let divs = document.querySelectorAll(".cls")
+    for (let s of divs) {
+        let cont = s.innerText
+        s.innerHTML = `<b>${cont}</b>`
+    }
+
+</script>
+</body>
+</html>

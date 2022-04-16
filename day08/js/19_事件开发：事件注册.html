@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两种方式设置事件</title>
+</head>
+<body>
+<!--命名函数设置事件，格式: <标签名 on事件名="函数名()">,
+注意:函数名不要和事件名雷同, 有on和没有on可能都不行
+示例：注册按钮点击事件，使用命名函数注册
+-->
+<input type="button" value="命名函数设置事件" onclick="click1()"/><br/><br/>
+
+<!--匿名函数设置事件-->
+<input id="input2" type="button" value="匿名函数设置事件"/><br/>
+
+<script>
+    // 定义函数
+    function click1() {
+        alert("你点我啦! 命名函数设置事件")
+    }
+
+    // 匿名函数设置事件，格式： js对象.on事件名=function(){}
+    // 实例：给id="input2"设置点击事件，使用命名函数注册
+    document.getElementById("input2").onclick = function () {
+        console.log("hhh");
+    }
+
+
+    // 注意:标签要放在前面,这里才能通过id找到标签.
+
+</script>
+
+
+</body>
+</html>

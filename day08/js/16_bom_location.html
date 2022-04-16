@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location地址栏</title>
+</head>
+<body>
+<script>
+    // location的href属性: 获取地址栏的所有内容
+    console.log(location.href = "http://127.0.0.1:8080")
+
+    // location的href属性: 修改地址栏的所有内容 (可以跳转网页)
+    location.href = "http://127.0.0.1:8080";
+
+    // 3秒跳转到百度
+    document.write("3秒跳转到百度<br/>");
+
+
+    // 面试题
+    // location是window的属性可以省略window
+    document.write(location.href + "<br/>");
+    document.write(window.location.href + "<br/>");
+    // location的href属性可以省略
+    document.write(location + "<br/>");
+    document.write(window.location + "<br/>");
+</script>
+</body>
+</html>
