@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * ç”ŸæˆéªŒè¯ç , å¹¶æŠŠç”Ÿæˆçš„éªŒè¯ç ä¿å­˜åˆ° session åŸŸ, å›¾ç‰‡è¾“å‡ºåˆ°å“åº”æµ
+ *
  * @author admin
  */
 @WebServlet("/verifyCodeServlet")
@@ -22,15 +24,15 @@ public class VerifyCodeServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Éú³ÉÑéÖ¤Âë, °ÑÉú³ÉµÄÑéÖ¤Âë´«µ½Ç°¶Ë
+		//ç”ŸæˆéªŒè¯ç , æŠŠç”Ÿæˆçš„éªŒè¯ç ä¼ åˆ°å‰ç«¯
 
 		ServletOutputStream sop = response.getOutputStream();
 
 		String checkCodeImg = CheckCodeUtil.outputVerifyImage(100, 50, sop, 1);
-		//´æµ½ seesion Óò, ²»È»µÚ¶ş´ÎÇëÇóÎŞ·¨·ÃÎÊ
+		//å­˜åˆ° seesion åŸŸ, ä¸ç„¶ç¬¬äºŒæ¬¡è¯·æ±‚æ— æ³•è®¿é—®
 		request.getSession().setAttribute("checkCodeImg", checkCodeImg);
 
-//        System.out.println(checkCode);
+		System.out.println(checkCodeImg);
 
 
 	}

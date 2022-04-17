@@ -8,11 +8,18 @@
 </head>
 <body>
 
-<h1>欢迎 ${username} 使用商品管理系统</h1>
+<%-- @param loginUser 从 session 获取 loginUser 对象
+     @param brandList 从 request 获取 brandList 集合
+
+     允许跳转到 /SelectByIDServlet?id=${brand.id} 进行修改
+     和
+     允许跳转到 /DeletedBrandServlet?id=${brand.id} 进行删除
+--%>
+
+<h1>欢迎 ${loginUser.username} 使用商品管理系统</h1>
 
 <input type="button" value="新增" onclick=location.href='/web/addBrand.jsp'><br>
 <hr>
-
 
 <table border="1" cellspacing="0" width="80%">
     <tr>
@@ -36,11 +43,23 @@
             <td>${brand.companyName}</td>
             <td>${brand.ordered}</td>
             <td>${brand.description}</td>
-            <td><a href="/SelectByIDServlet?id=${brand.id}">修改</a> <a href="/DeletedBrandServlet?id=${brand.id}">删除</a>
+            <td><a href="/SelectByIDServlet?id=${brand.id}">修改</a>
+                    <%-- 确认是否要删除--%>
+                <a href="#" onclick="del(${brand.id})">删除</a>
             </td>
         </tr>
     </c:forEach>
 
 </table>
+
+<script>
+    // 删除确认
+    function del(id) {
+        if (confirm('是否要删除')) {
+            location.href = "/DeletedBrandServlet?id=" + id
+        }
+    }
+</script>
+
 </body>
 </html>

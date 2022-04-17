@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * 添加商品信息
+ * 添加成功 直接返回 /BrandListServlet
+ *
  * @author admin
  */
 @WebServlet("/addBrandServlet")
 public class AddBrandServlet extends HttpServlet {
-    BrandService brandService = new BrandService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,8 +39,7 @@ public class AddBrandServlet extends HttpServlet {
         BrandService.addBrand(brand);
 
         //添加成功返回所有商品列表
-        response.sendRedirect(request.getContextPath() + "\\BrandListServlet");
-
+		response.sendRedirect(request.getContextPath() + "/BrandListServlet");
 
     }
 }

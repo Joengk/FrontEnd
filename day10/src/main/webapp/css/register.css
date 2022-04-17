@@ -131,7 +131,7 @@ input[type="button"]:active, input[type="submit"]:active {
 
 .err_msg {
     color: red;
-    padding-right: 170px;
+    padding-right: 20px;
 }
 
 #password_err, #tel_err {

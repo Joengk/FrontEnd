@@ -12,7 +12,7 @@
 <body>
 <div id="loginDiv" style="height: 350px">
     <%-- 登录跳转地址--%>
-    <form action="../loginServlet" method="post" id="form">
+    <form action="../loginServlet" method="get" id="form">
         <h1 id="loginMsg">登 录</h1>
         <%-- 使用 cookie 内置对象 --%>
         <p>用户名:<input id="username" name="username" type="text" value="${cookie.username.value}"></p>
@@ -27,7 +27,7 @@
             <input type="submit" class="button" value="登 录">
             <input type="reset" class="button" value="重 置">
             <br>
-            <a href="register.jsp">没有账号？</a>
+            <a href="register.html">没有账号？</a>
         </div>
     </form>
 </div>

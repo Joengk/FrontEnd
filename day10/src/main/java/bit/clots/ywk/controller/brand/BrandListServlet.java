@@ -1,6 +1,7 @@
 package bit.clots.ywk.controller.brand;
 
 import bit.clots.ywk.pojo.Brand;
+import bit.clots.ywk.pojo.User;
 import bit.clots.ywk.servic.BrandService;
 
 import javax.servlet.ServletException;
@@ -26,7 +27,7 @@ public class BrandListServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = (String) request.getSession().getAttribute("username");
+		User loginUser = (User) request.getSession().getAttribute("loginUser");
 
 		//遍历数据库中的商品数据, 封装到请求中
 		List<Brand> brandList = BrandService.selectAllBrand();

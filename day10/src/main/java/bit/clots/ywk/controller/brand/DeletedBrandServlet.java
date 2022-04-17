@@ -12,6 +12,9 @@ import java.io.IOException;
 
 
 /**
+ * É¾ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½Ï¢
+ * É¾ï¿½ï¿½ï¿½É¹ï¿½ ï¿½ï¿½ï¿½ï¿½ /BrandListServlet
+ *
  * @author admin
  */
 @WebServlet("/DeletedBrandServlet")
@@ -21,25 +24,16 @@ public class DeletedBrandServlet extends HttpServlet {
 		doPost(request, response);
 	}
 
-
-	/**
-	 * É¾³ýÊý¾ÝµÄ·½·¨
-	 *
-	 * @param request
-	 * @param response
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//½âÎöÇëÇóµÄÊý¾Ý: ÒªÉ¾³ýµÄidÖµ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ÒªÉ¾ï¿½ï¿½ï¿½ï¿½idÖµ
 		Integer id = Integer.valueOf(request.getParameter("id"));
 
-		//É¾³ýÊý¾Ý¿âÐÅÏ¢
+		//É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ï¢
 		BrandService.deletedBrand(id);
 
-		//É¾³ý³É¹¦·µ»ØÈ«²¿ÐÅÏ¢Ò³Ãæ
+		//É¾ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½Ï¢Ò³ï¿½ï¿½
 		response.sendRedirect(request.getContextPath() + "/BrandListServlet");
 
 	}

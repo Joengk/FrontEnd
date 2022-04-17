@@ -2,8 +2,7 @@ package bit.clots.ywk.servic;
 
 import bit.clots.ywk.mapper.BrandMapper;
 import bit.clots.ywk.pojo.Brand;
-import bit.clots.ywk.utils.MybatisUtils;
-import org.apache.ibatis.session.SqlSession;
+import bit.clots.ywk.utils.MapperFactory;
 
 import java.util.List;
 
@@ -11,65 +10,49 @@ import java.util.List;
  * @author admin
  */
 public class BrandService {
+
+	static BrandMapper mapper = MapperFactory.getBean(BrandMapper.class);
+
 	/**
-	 * Ìí¼ÓÆ·ÅÆĞÅÏ¢
+	 * æ·»åŠ å“ç‰Œä¿¡æ¯
 	 *
-	 * @param brand
+	 * @param brand è¦æ·»åŠ çš„å“ç‰Œå¯¹è±¡
 	 */
 	public static void addBrand(Brand brand) {
-		SqlSession sqlSession = MybatisUtils.getSession();
-		BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
 		mapper.addBrand(brand);
-		MybatisUtils.close(sqlSession);
 	}
 
 	/**
-	 * ¸ù¾İid´ÓÊı¾İ¿âÖĞ²éÑ¯Êı¾İ
+	 * æ ¹æ®idä»æ•°æ®åº“ä¸­æŸ¥è¯¢æ•°æ®
 	 *
-	 * @param id
+	 * @param id éœ€è¦æŸ¥è¯¢çš„id
 	 * @return
 	 */
 	public static Brand selectById(Integer id) {
-		SqlSession sqlSession = MybatisUtils.getSession();
-		BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
-		Brand brand = mapper.selectById(id);
-		MybatisUtils.close(sqlSession);
-		return brand;
+		return mapper.selectById(id);
 	}
 
 	/**
-	 * ÏÔÊ¾ËùÓÃÉÌÆ·ĞÅÏ¢
+	 * æ˜¾ç¤ºæ‰€ç”¨å•†å“ä¿¡æ¯
 	 *
 	 * @return
 	 */
 	public static List<Brand> selectAllBrand() {
-		SqlSession sqlSession = MybatisUtils.getSession();
-		BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
-		List<Brand> brandList = mapper.selectAllBrand();
-		MybatisUtils.close(sqlSession);
-		return brandList;
+		return mapper.selectAllBrand();
 	}
 
 
 	/**
-	 * ¸üĞÂÆ·ÅÆĞÅÏ¢
+	 * æ›´æ–°å“ç‰Œä¿¡æ¯
 	 *
 	 * @param brand
 	 * @return
 	 */
 	public static Integer updateBrand(Brand brand) {
-		SqlSession sqlSession = MybatisUtils.getSession();
-		BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
-		Integer integer = mapper.updateBrand(brand);
-		MybatisUtils.close(sqlSession);
-		return integer;
+		return mapper.updateBrand(brand);
 	}
 
 	public static Integer deletedBrand(Integer id) {
-		SqlSession sqlSession = MybatisUtils.getSession();
-		BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
-		Integer integer = mapper.deletedBrand(id);
-		MybatisUtils.close(sqlSession);
-		return integer;
+		return mapper.deletedBrand(id);
 	}
 }

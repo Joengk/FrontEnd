@@ -1,7 +1,7 @@
 package bit.clots.ywk.controller.user;
 
 import bit.clots.ywk.pojo.User;
-import bit.clots.ywk.servic.UserServic;
+import bit.clots.ywk.servic.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 
 		//验证用户
-		User loginUser = UserServic.findByUsernameAndPassword(username, password);
+		User loginUser = UserService.findByUsernameAndPassword(username, password);
 
 		if ( loginUser != null ) {
 
@@ -45,13 +45,12 @@ public class LoginServlet extends HttpServlet {
 			response.addCookie(cookie);
 
 			// 传递用户数据
-			request.getSession().setAttribute("username", username);
+			request.getSession().setAttribute("loginUser", loginUser);
 
 			//重定向到 商品详情页面
 			response.sendRedirect(request.getContextPath() + "/BrandListServlet");
 
 		} else {
-
 			response.getWriter().println("<h1>账号或密码有误<h1/>");
 		}
 

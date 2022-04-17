@@ -1,7 +1,7 @@
 package bit.clots.ywk.controller.user;
 
 import bit.clots.ywk.pojo.User;
-import bit.clots.ywk.servic.UserServic;
+import bit.clots.ywk.servic.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,11 +43,11 @@ public class RegisterServlet extends HttpServlet {
 
 
 		//与数据比对用户名
-		User checkUser = UserServic.findUserByName(username);
+		User checkUser = UserService.findUserByName(username);
 
 		if ( checkUser == null ) {
 			//注册成功, 把用户名传给其它页面
-			UserServic.addUser(username, password);
+			UserService.addUser(username, password);
 
 			request.setAttribute("username", username);
 

@@ -1,29 +1,51 @@
 package bit.clots.ywk.filter;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * ¼ì²éÓÃ»§ÊÇ·ñµÇÂ¼£¬Èç¹ûÃ»ÓĞ£¬ÔòÖØ¶¨Ïòµ½µÇÂ¼Ò³Ãæ
+ * æ£€æŸ¥ç”¨æˆ·æ˜¯å¦ç™»å½•ï¼Œ
+ * ç™»å½•è¿‡ä¸åšç‰¹æ®Šå¤„ç†
+ * å¦‚æœæ²¡æœ‰ï¼Œåˆ™é‡å®šå‘åˆ°ç™»å½•é¡µé¢
  *
  * @author admin
  */
-@WebFilter("/*")
+
+//todo ä¿®æ”¹ filter æ¨¡æ¿
+
+//@WebFilter("/*")
 public class LoginFilter implements Filter {
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-		System.out.println("µÇÂ¼¹ıÂËÆ÷´¦Àí");
-		HttpSession session = ((HttpServletRequest) request).getSession();
-		if ( session.getAttribute("username") == null ) {
-			((HttpServletResponse) response).sendRedirect(((HttpServletRequest) request).getContextPath() + "/web/login.jsp");
-		} else {
-			filterChain.doFilter(request, response);
-		}
-		System.out.println("µÇÂ¼¹ıÂËÆ÷´¦ÀíÍê³É");
+	public void doFilter(ServletRequest sRequest, ServletResponse sResponse, FilterChain filterChain) throws IOException, ServletException {
+		System.out.println("loginFilterStart");
 
+		HttpServletRequest hRequest = (HttpServletRequest) sRequest;
+		HttpServletResponse hResponse = (HttpServletResponse) sResponse;
+
+		//ç›´æ¥æ”¾è¡Œèµ„æºåˆ—è¡¨
+		String[] uris = {"/css", "/js", "/imgs", "/index", "/login", "/register"};
+
+		//è§£æè®¿é—®è·¯å¾„
+		String uri = hRequest.getRequestURI();
+
+		//éƒ¨åˆ†ä¸éœ€è¦éªŒè¯çš„èµ„æºç›´æ¥æ”¾è¡Œ, ä¸å†åˆ¤æ–­
+		for (String s : uris) {
+			if ( uri.contains(s) ) {
+				System.out.println("go out");
+				filterChain.doFilter(hRequest, hResponse);
+				return;
+			}
+		}
+
+		HttpSession session = hRequest.getSession();
+		if ( session.getAttribute("loginUser") == null ) {
+			System.out.println("login first");
+			hResponse.sendRedirect(hRequest.getContextPath() + "/web/login.jsp");
+		} else {
+			filterChain.doFilter(hRequest, hResponse);
+		}
 	}
 }

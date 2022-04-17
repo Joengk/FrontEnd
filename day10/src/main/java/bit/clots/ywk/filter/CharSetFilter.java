@@ -2,47 +2,32 @@ package bit.clots.ywk.filter;
 
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
+ * åªå¯¹postè¯·æ±‚ä¹±ç å¤„ç†, ç”±äºä»£ç ä¸­ get æ–¹æ³•æ˜¯è°ƒç”¨ post æ–¹æ³•çš„æ‰€ä»¥åªåˆ¤æ–­ post æ–¹æ³•, å“åº”ç”± jsp å¤„ç†
+ *
  * @author admin
  */
-@WebFilter("/*")
+//@WebFilter("/*")
 public class CharSetFilter implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-		request.setCharacterEncoding("UTF-8");
-		String uri = ((HttpServletRequest) request).getRequestURL().toString();
 		System.out.println("charsetFilterStart");
 
-		if ( uri.contains(".css") || uri.contains(".js") || uri.contains(".png") || uri.contains(".jpg") ) {
-			//response.setContentType("text/css;charset=utf-8");
-
-		} else {
-			//´¦ÀíÏìÓ¦ÂÒÂë
-			response.setContentType("text/html;charset=utf-8");
+		//è¯·æ±‚è¿‡æ»¤
+		HttpServletRequest request1 = (HttpServletRequest) request;
+		String method = request1.getMethod();
+		if ( "POST".equals(method) ) {
+			request.setCharacterEncoding("UTF-8");
 		}
 
 
-		// todo ²âÊÔÊÇ·ñ»áÂÒÂë, ²âÊÔ css ÊÇ·ñ³É¹¦¼ÓÔØ
-//        //¹ıÂË html
-//        if(uri.contains(".html"))
-//        {
-//
-//            response.setContentType("text/html;charset=utf-8");
-//            System.out.println("yes");
-//        }
-//        else
-//        {
-//            //´¦ÀíÏìÓ¦ÂÒÂë
-//            response.setContentType("text/html;charset=utf-8");
-//        }
-
-		// ¹ıÂËÍê±Ï, ·ÅĞĞ
+		// è¿‡æ»¤å®Œæ¯•, æ”¾è¡Œ
 		filterChain.doFilter(request, response);
+
 	}
 
 }
